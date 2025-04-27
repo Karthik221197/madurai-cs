@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+@using WebMaduraiCateringService.Controllers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cart</title>
+</head>
+<body>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Option</th>
+            <th>MenuId</th>
+            <th>MenuName</th>
+            <th>Price_Person</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        @{
+            decimal s = 0;
+        }
+        @foreach (Item item in (List<Item>)Session["cart"])
+
+        {
+            s = s + item.Pr.Price_Person * item.Quantity;
+            <tr>
+                <td>@Html.ActionLink("Delete", "Delete", "ShoppingCart", new { MenuId = item.Pr.MenuId }, null)</td>
+                <td>@item.Pr.MenuId</td>
+                <td>@item.Pr.MenuName</td>
+                <td>@item.Pr.Price_Person</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Pr.Price_Person * item.Quantity)</td>
+            </tr>
+        }
+        <tr>
+            <th align="right" colspan="5">Sum</th>
+            <td>@s</td>
+        </tr>
+    </table>
+     @using (Html.BeginForm("Orders", "ShoppingCart", FormMethod.Post))
+    {
+        <button class="pull-right" colspan="5">CheckOut</button>
+        <br />}
+   @Html.ActionLink("Continue Ordering", "Index", "Product")
+</body>
+</html>

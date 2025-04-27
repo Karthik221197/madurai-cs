@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HomePage</h2>
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Post))
+{
+    <button class="pull-right" colspan="5">Click Here to View Products</button>
+    <br />
+}
+
+
+
+<div id="themeSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../Images/Wedding.jpg" alt="First slide">
+            <div class="carousel-caption">
+                <h3>Wedding Celebration</h3>
+                <p>Gravitation is not responsible for people falling in love.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../Images/Birthday.jpg" alt="Second slide">
+            <div class="carousel-caption">
+                <h3>Birthday Celebration</h3>
+                <p>May your Birthday be sprinkled with Fun and Laughter.</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../Images/CorporateParty.jfif" alt="Third slide">
+            <div class="carousel-caption">
+                <h3>Corporate Parties</h3>
+                <p>WorkHard !! and Party Harder.</p>
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2>Our Items <small> trends Items</small></h2>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6" style="margin-bottom:8px">
+            <div class="thembnail product-item" style="height:300px">
+
+                <img class="img-responsive" title="Click to View Item detail"
+                     style="cursor:pointer;height:160px;width=100%"
+                     src="~/Images/Weddingcs.jpg" />
+
+                <div class="caption">
+                    <h5>Wedding Package</h5>
+                    <p> 55000.00</p>
+                    <p>Available</p>
+                    <div class="product-item-badge">New</div>
+                    @using (Html.BeginForm("Form", "Payment"))
+                    {
+                        <button type="submit" class="btn btn-primary">Click here to buy</button>
+                    }
+                </div>
+            </div>
+
+            <img class="img-responsive" title="Click to View Item detail"
+                 style="cursor:pointer;height:160px;width=100%"
+                 src="~/Images/CorporateParty.jfif" />
+
+            <div class="caption">
+                <h5>CorporateParty Package</h5>
+                <p> 35000.00</p>
+                <p>Available</p>
+                <div class="product-item-badge">New</div>
+
+                @using (Html.BeginForm("Form", "Payment"))
+                {
+                    <button type="submit" class="btn btn-primary">Click here to buy</button>
+                }
+            </div>
+
+            <img class="img-responsive" title="Click to View Item detail"
+                 style="cursor:pointer;height:160px;width=100%"
+                 src="~/Images/Birthday.jpg" />
+
+            <div class="caption">
+                <h5>Birthday Package</h5>
+                <p> 38000.00</p>
+                <p>Available</p>
+                <div class="product-item-badge">New</div>
+                @using (Html.BeginForm("Form", "Payment"))
+                {
+                    <button type="submit" class="btn btn-primary">Click here to buy</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
